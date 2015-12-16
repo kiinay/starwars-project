@@ -10,6 +10,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/skeleton.css') }}">
   {{--<link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">--}}
