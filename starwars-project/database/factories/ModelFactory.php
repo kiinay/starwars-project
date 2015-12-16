@@ -13,9 +13,33 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'name' => 'admin',
+        'email' => 'admin.admin@gmail.com',
+        'password' => Hash::make('admin'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Customer::class, function (Faker\Generator $faker) {
+    return [
+        'username' => $faker->firstName,
+        'email' => $faker->email,
+        'password' => Hash::make('test'),
+    ];
+});
+
+$factory->define(App\History::class, function (Faker\Generator $faker) {
+    return [
+        'customer_id'=> $faker->randomDigitNotNull,
+        'total' => $faker->randomDigitNotNull,
+        'commanded_At' => $faker->dateTimeThisYear($max = 'now'),
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->word,
+        'abstract' => $faker->sentence($nbWords = 20),
+        'content' => $faker->text($maxNbChars = 300),
     ];
 });
