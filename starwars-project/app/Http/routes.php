@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
-});
-
 Route::resource('customers', 'CustomersController');
+Route::resource('product', 'ProductController');
+
+Route::get('/', 'ProductController@index');
+Route::get('/register', 'CustomersController@create');
