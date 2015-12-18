@@ -6,8 +6,7 @@
     <a href="{{ url('/') }}">Contact</a>
 
     <span class="customers_actions">
-      <a href="{{ url('/register') }}">S'inscrire</a>
-      <a href="#">Login</a>
+      <a href="{{ url('/register') }}">Inscription (client)</a>
     </span>
   </nav>
 </header>
