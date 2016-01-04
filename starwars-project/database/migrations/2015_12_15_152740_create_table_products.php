@@ -20,8 +20,6 @@ class CreateTableProducts extends Migration
             $table->string('abstract');
             $table->string('content');
             $table->enum('status', ['disponible', 'rupture', 'commande'])->default('disponible');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('SET NULL');
-            $table->foreign('image_id')->references('id')->on('images')->onDelete('SET NULL');
             $table->timestamps();
         });
     }
