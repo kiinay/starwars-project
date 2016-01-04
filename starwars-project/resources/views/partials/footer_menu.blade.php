@@ -2,5 +2,5 @@
   <a href="{{ url('/') }}">Accueil</a>
   <a href="#">Mentions</a>
   <a href="#">Contact</a>
-  <a href="{{ url('/auth/login') }}">Connexion (admin)</a>
+  <a href="{{ url('/admin/dashboard') }}">Connexion (admin)</a>
 </div>

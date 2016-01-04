@@ -4,7 +4,7 @@
   @foreach($products as $product)
     <div id="product">
       <div class="img-min">
-        <img src="{{ asset('assets/img/star-wars-minions.png') }}" alt="product pictures">
+        <img src="{{ asset($product->image->uri) }}" alt="product pictures">
       </div>
 
       <div class="infos">

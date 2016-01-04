@@ -60,7 +60,7 @@ class AdminController extends Controller
         $image->name = $img_name;
 
         $request->file('image')->move(public_path('images'), $img_name);
-        $image->uri = public_path('images') . '/' . $img_name;
+        $image->uri = '/images/' . $img_name;
 
         if($image->save()){
             $product->image_id = $image->id;
