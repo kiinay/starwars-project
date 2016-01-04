@@ -2,6 +2,9 @@
 
 @section('content')
     <h1>Administration des produits</h1>
+    <div>
+        <a href="{{ url('admin/product-form') }}">Créer un produit</a>
+    </div>
     <div class="row">
         <div class="two columns">
             Nom du produit

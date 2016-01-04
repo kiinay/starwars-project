@@ -17,6 +17,7 @@ Route::resource('product', 'ProductController');
 Route::get('/', 'ProductController@index');
 Route::get('/register', 'CustomersController@create');
 Route::get('/admin/dashboard', 'Admin\AdminController@index');
+Route::get('/admin/product-form', 'Admin\AdminController@create');
 
 Route::resource('admin', 'Admin\AdminController');
 

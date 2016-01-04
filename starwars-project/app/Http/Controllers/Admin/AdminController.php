@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Image;
+use App\Product;
+use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \Auth;
-use App\Product;
 
 class AdminController extends Controller
 {
@@ -24,6 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::all();
+
         return view('admin.index', compact('products'));
     }
 
@@ -34,7 +37,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $list_status = Product::lists('status');
+
+        return view('admin.product_form', compact('list_status'));
     }
 
     /**
@@ -43,9 +48,28 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product;
+        $product->title = $request->title;
+        $product->abstract = $request->abstract;
+        $product->content = $request->content;
+
+        $image = new Image;
+        $img_name = $request->file('image')->getClientOriginalName();
+        $image->name = $img_name;
+
+        $request->file('image')->move(public_path('images'), $img_name);
+        $image->uri = public_path('images') . '/' . $img_name;
+
+        if($image->save()){
+            $product->image_id = $image->id;
+            $product->save();
+            \Session::flash('message', 'Produit bien créé en BDD.');
+        }else{
+            \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
+        }
+        return redirect('admin/product-form');
     }
 
     /**
