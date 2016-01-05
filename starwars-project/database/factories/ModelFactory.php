@@ -36,12 +36,3 @@ $factory->define(App\History::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Product::class, function (Faker\Generator $faker) {
-    return [
-        'category_id' => $faker->numberBetween(1,2),
-        'image_id' =>  $faker->numberBetween(1,5),
-        'title' => $faker->word,
-        'abstract' => $faker->sentence($nbWords = 20),
-        'content' => $faker->text($maxNbChars = 300),
-    ];
-});
