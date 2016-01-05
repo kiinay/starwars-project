@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,14 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $products = Product::orderBy('created_at', 'desc')->with('image')->get();
-
+        $products = Product::orderBy('created_at', 'desc')->with('image', 'category')->get();
         return view('home.index', compact('products'));
+    }
+
+    public function category($id){
+        $products = Product::orderBy('created_at', 'desc')->with('image', 'category')->where('category_id', '=', $id)->get();
+        $category = Category::findOrFail($id);
+        return view('home.category', compact('products', 'category'));
     }
 
     /**

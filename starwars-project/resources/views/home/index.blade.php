@@ -13,7 +13,7 @@
             {{ $product->title }}
           </a>
         </h2>
-        <small>CATEGORY</small>
+        <small>{{ $product->category->title }}</small>
 
         <p>
           {{ $product->abstract }}
