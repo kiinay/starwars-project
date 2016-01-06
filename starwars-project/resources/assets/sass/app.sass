@@ -1,17 +1,96 @@
 // SASS HERE !!!
+$stargrey: #555555
 
 body
+  margin: 0
+  padding: 0
+  font-size: 1.6rem
+  header, footer, h1, h2, h3
+    font-family: 'starWars'
+  h1, em
+    color: $stargrey
+  em
+    font-size: 2rem
+  hr
+    border-color: $stargrey
   a
     text-decoration: none
+  header, footer
+    font-size: 2rem
+    background-color: #000
+    a
+      padding: 20px
+      display: inline-block
+      transition: background-color .4s linear
+      &:hover
+        background-color: #000054
+  footer
+    bottom: 0
+    text-align: center
+    width: 100%
   #header-container
-    padding: 10px
     .customers_actions
       float: right
+  .market-title
+    margin: 30px 0 30px 0
+    text-align: center
+    font-size: 6rem
   .container
+    h1
+      text-align: center
+    #product, #auth, #admin-products, #create-form
+      padding: 10px
+      background-color: rgba(245, 245, 245, .5)
+      border: 1px solid #c1c1c1
+      border-radius: 10px
     #product
-      div
-        display: inline-block
+      margin: 0 0 15px 0
+      .head.home
+        margin-bottom: 25px
+        h2
+          margin: 0 0 0 0
+          a
+            color: #222
+            &:hover
+              color: #373737
+        p
+          font-size: 1.6rem
+          font-family: 'starWars'
+          font-weight: bold
+      .head.show
+        position: relative
+        margin-bottom: 40px
+        h2
+          margin: 0 0 0 0
+          text-align: right
+        p
+          position: absolute
+          right: 0
+          font-size: 1.6rem
+          font-family: 'starWars'
+          font-weight: bold
       .img-min
         img
           width: 300px
           height: 300px
+      .img-max
+        img
+          width: 400px
+          height: 400px
+          float: right
+    #auth
+      h4
+        margin-bottom: 30px
+    #admin-products
+      text-align: center
+      .create-product
+        margin-bottom: 10px
+        text-align: right
+      .abstract
+        text-align: left
+    #create-form
+      .error
+        margin: 0 0 10px 0
+        color: #9c0000
+        p
+          margin: 0

@@ -1,37 +1,38 @@
 @extends('layouts.master')
 
 @section('content')
-  @if (Session::has('message'))
-    <div>{!! session('message') !!}</div>
-  @endif
-  <h4>Formulaire de création d'un produit</h4>
+  <h1>Création d'un produit</h1>
 
-  <div>
-    {!! Form::open(array('action' => 'Admin\AdminController@store', 'files' => true)) !!}<br>
-    {!! csrf_field() !!}
-    {!! $errors->first('title') !!}
-    {!! $errors->first('abstract') !!}
-    {!! $errors->first('content') !!}
-    {!! $errors->first('image') !!}
+  <div id="create-form">
+    @if (Session::has('message'))
+      <div>{!! session('message') !!}</div>
+    @endif
 
-    {!! Form::label('title', 'Titre') !!}
-    {!! Form::text('title', Input::old('title'), array('placeholder' => 'Titre du produit...', 'class' => 'u-full-width')) !!}
+    <div>
+      {!! Form::open(array('action' => 'Admin\AdminController@store', 'files' => true)) !!}<br>
+      {!! csrf_field() !!}
+      @foreach ($errors->all() as $errors)
+        <div class="error">
+          <p>{{ $errors }}</p>
+        </div>
+      @endforeach
 
-    {!! Form::label('abstract', 'Extrait de description') !!}
-    {!! Form::text('abstract', null, array('placeholder' => 'Extrait...', 'class' => 'u-full-width')) !!}
+      {!! Form::label('title', 'Titre') !!}
+      {!! Form::text('title', Input::old('title'), array('placeholder' => 'Titre du produit...', 'class' => 'u-full-width')) !!}
 
-    {!! Form::label('content', 'Description') !!}
-    {!! Form::text('content', null, array('placeholder' => 'Description du produit...', 'class' => 'u-full-width')) !!}
+      {!! Form::label('abstract', 'Extrait de description') !!}
+      {!! Form::text('abstract', null, array('placeholder' => 'Extrait...', 'class' => 'u-full-width')) !!}
 
-    {!! Form::label('image', 'Image du produit') !!}
-    {!! Form::file('image') !!}
+      {!! Form::label('content', 'Description') !!}
+      {!! Form::text('content', null, array('placeholder' => 'Description du produit...', 'class' => 'u-full-width')) !!}
 
-    {{--{!! Form::label('status', 'Status') !!}
-    {!! Form::select('status', $list_status) !!}--}}
+      {!! Form::label('image', 'Image du produit') !!}
+      {!! Form::file('image') !!}
 
-    <br>
+      <br>
 
-    {!! Form::submit('Enregistrer') !!}
-    {!! Form::close()  !!}
+      {!! Form::submit('Enregistrer') !!}
+      {!! Form::close()  !!}
+    </div>
   </div>
 @endsection

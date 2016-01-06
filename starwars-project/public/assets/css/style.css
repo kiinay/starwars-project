@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'starWars';
+  src: url('../fonts/star_jedi/stjedise/STJEDISE.TTF') format('truetype');
+}
+
+body {
+  background-image: url('../img/stars.gif');
+}

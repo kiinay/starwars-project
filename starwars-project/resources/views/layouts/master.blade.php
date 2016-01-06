@@ -10,9 +10,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/skeleton.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     {{--<link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">--}}
     {{--<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">--}}
 
@@ -20,15 +21,16 @@
   </head>
 
   <body>
-    <div id="header-container">
+    <header id="header-container" class="row">
       @include('partials.main_menu')
-    </div>
+    </header>
 
+    <h1 class="market-title">STAR WARS MARKET</h1>
     <div class="container">
       @yield('content', 'default value')
     </div>
 
-    <footer id="footer-container">
+    <footer id="footer-container" class="row">
       @include('partials.footer_menu')
     </footer>
   </body>

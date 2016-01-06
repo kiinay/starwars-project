@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
   <a href="{{ url('/') }}">Accueil</a>
   <a href="#">Mentions</a>
   <a href="#">Contact</a>

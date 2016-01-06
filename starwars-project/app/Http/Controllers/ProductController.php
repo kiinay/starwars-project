@@ -19,13 +19,21 @@ class ProductController extends Controller
      */
     public function index() {
         $products = Product::orderBy('created_at', 'desc')->with('image', 'category')->get();
+
         return view('home.index', compact('products'));
     }
 
-    public function category($id){
+    public function category($id) {
         $products = Product::orderBy('created_at', 'desc')->with('image', 'category')->where('category_id', '=', $id)->get();
         $category = Category::findOrFail($id);
+
         return view('home.category', compact('products', 'category'));
+    }
+
+    public function show($id) {
+        $product = Product::find($id);
+
+        return view('product.single', compact('product'));
     }
 
     /**
@@ -45,17 +53,6 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
     {
         //
     }
