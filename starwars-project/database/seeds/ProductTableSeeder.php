@@ -14,17 +14,6 @@ class ProductTableSeeder extends Seeder
         DB::table('products')->insert(
             [
                 [
-                    'title' => 'Sabre Laser Vert',
-                    'category_id' => '1',
-                    'image_id' => '1',
-                    'abstract' => 'Employé par les Jedi tout comme les Sith, il s\'emploie comme un sabre classique, mais peut traverser de nombreuses matières solides, comme la majorité des métaux. Cependant, son fort effet gyroscopique peut être extrêmement dangereux pour quelqu\'un qui ne maîtrise pas la Force.',
-                    'content' => 'Employé par les Jedi tout comme les Sith, il s\'emploie comme un sabre classique, mais peut traverser de nombreuses matières solides, comme la majorité des métaux. Cependant, son fort effet gyroscopique peut être extrêmement dangereux pour quelqu\'un qui ne maîtrise pas la Force.
-                    L\'arme s\'avère supérieure à la précédente mais reste toutefois relativement archaïque. Elle se recharge elle-même grâce à des matériaux supra-conducteurs et un système de récupération de l\'énergie constituant la "lame", ce qui lui offre une durabilité presque illimitée. Elle est utilisée par les Jedi lors de la Grande Guerre de l\'Hyperespace, face à l\'Empire Sith de Naga Sadow. Par la suite, l\'utilisation des sabres laser ne cesse de se généraliser parmi les adeptes de la Force, qu\'ils soient Jedi ou Sith. À partir de la Grande Guerre des Sith, plusieurs variantes commencent à faire leur apparition comme le double sabre laser d\'Exar Kun.
-
-Après la Guerre des Clones et la Grande Purge Jedi qui en découle, il ne subsiste presque aucun Jedi. L\'usage du sabre laser a donc pratiquement disparu de la galaxie, car exhiber une arme telle que celle-ci équivaut pour un Jedi à être découvert et traqué par l\'Empire. Ce n\'est qu\'après la résurrection de l\'Ordre Jedi, sous Luke Skywalker, que le sabre laser refait son apparition.',
-                    'status' => 'disponible'
-                ],
-                [
                     'title' => 'Sabre Laser Bleu',
                     'category_id' => '1',
                     'image_id' => '2',
@@ -33,6 +22,18 @@ Après la Guerre des Clones et la Grande Purge Jedi qui en découle, il ne subsi
                     L\'arme s\'avère supérieure à la précédente mais reste toutefois relativement archaïque. Elle se recharge elle-même grâce à des matériaux supra-conducteurs et un système de récupération de l\'énergie constituant la "lame", ce qui lui offre une durabilité presque illimitée. Elle est utilisée par les Jedi lors de la Grande Guerre de l\'Hyperespace, face à l\'Empire Sith de Naga Sadow. Par la suite, l\'utilisation des sabres laser ne cesse de se généraliser parmi les adeptes de la Force, qu\'ils soient Jedi ou Sith. À partir de la Grande Guerre des Sith, plusieurs variantes commencent à faire leur apparition comme le double sabre laser d\'Exar Kun.
 
 Après la Guerre des Clones et la Grande Purge Jedi qui en découle, il ne subsiste presque aucun Jedi. L\'usage du sabre laser a donc pratiquement disparu de la galaxie, car exhiber une arme telle que celle-ci équivaut pour un Jedi à être découvert et traqué par l\'Empire. Ce n\'est qu\'après la résurrection de l\'Ordre Jedi, sous Luke Skywalker, que le sabre laser refait son apparition.',
+                    'status' => 'disponible'
+                ],
+                [
+                    'title' => 'Casque de Stromtrooper',
+                    'category_id' => '2',
+                    'image_id' => '5',
+                    'abstract' => 'Les Stormtroopers (littéralement, troupiers d\'assaut, ou Chasseurs impériaux dans la version française) sont les soldats de l\'Empire galactique dans la saga Star Wars.',
+                    'content' => 'Les Stormtroopers (littéralement, troupiers d\'assaut, ou Chasseurs impériaux dans la version française) sont les soldats de l\'Empire galactique dans la saga Star Wars.
+
+Dans la trilogie originale, Ils sont sous les ordres de Dark Vador, L\'Empereur, ou Grand Moff Tarkin.
+
+Dans Star Wars, épisode II : L\'Attaque des clones, les Clones Troopers sont des êtres modifiés et clonés par le chasseur de primes Jango Fett afin de livrer bataille comme Armée de la République et de détruire les Jedi.',
                     'status' => 'disponible'
                 ],
                 [
@@ -55,15 +56,14 @@ Après la Guerre des Clones et la Grande Purge Jedi qui en découle, il ne subsi
                     'status' => 'disponible'
                 ],
                 [
-                    'title' => 'Casque de Stromtrooper',
-                    'category_id' => '2',
-                    'image_id' => '5',
-                    'abstract' => 'Les Stormtroopers (littéralement, troupiers d\'assaut, ou Chasseurs impériaux dans la version française) sont les soldats de l\'Empire galactique dans la saga Star Wars.',
-                    'content' => 'Les Stormtroopers (littéralement, troupiers d\'assaut, ou Chasseurs impériaux dans la version française) sont les soldats de l\'Empire galactique dans la saga Star Wars.
+                    'title' => 'Sabre Laser Vert',
+                    'category_id' => '1',
+                    'image_id' => '1',
+                    'abstract' => 'Employé par les Jedi tout comme les Sith, il s\'emploie comme un sabre classique, mais peut traverser de nombreuses matières solides, comme la majorité des métaux. Cependant, son fort effet gyroscopique peut être extrêmement dangereux pour quelqu\'un qui ne maîtrise pas la Force.',
+                    'content' => 'Employé par les Jedi tout comme les Sith, il s\'emploie comme un sabre classique, mais peut traverser de nombreuses matières solides, comme la majorité des métaux. Cependant, son fort effet gyroscopique peut être extrêmement dangereux pour quelqu\'un qui ne maîtrise pas la Force.
+                    L\'arme s\'avère supérieure à la précédente mais reste toutefois relativement archaïque. Elle se recharge elle-même grâce à des matériaux supra-conducteurs et un système de récupération de l\'énergie constituant la "lame", ce qui lui offre une durabilité presque illimitée. Elle est utilisée par les Jedi lors de la Grande Guerre de l\'Hyperespace, face à l\'Empire Sith de Naga Sadow. Par la suite, l\'utilisation des sabres laser ne cesse de se généraliser parmi les adeptes de la Force, qu\'ils soient Jedi ou Sith. À partir de la Grande Guerre des Sith, plusieurs variantes commencent à faire leur apparition comme le double sabre laser d\'Exar Kun.
 
-Dans la trilogie originale, Ils sont sous les ordres de Dark Vador, L\'Empereur, ou Grand Moff Tarkin.
-
-Dans Star Wars, épisode II : L\'Attaque des clones, les Clones Troopers sont des êtres modifiés et clonés par le chasseur de primes Jango Fett afin de livrer bataille comme Armée de la République et de détruire les Jedi.',
+Après la Guerre des Clones et la Grande Purge Jedi qui en découle, il ne subsiste presque aucun Jedi. L\'usage du sabre laser a donc pratiquement disparu de la galaxie, car exhiber une arme telle que celle-ci équivaut pour un Jedi à être découvert et traqué par l\'Empire. Ce n\'est qu\'après la résurrection de l\'Ordre Jedi, sous Luke Skywalker, que le sabre laser refait son apparition.',
                     'status' => 'disponible'
                 ],
             ]

@@ -5,6 +5,7 @@
     @if (Session::has('message'))
         <div>{!! session('message') !!}</div>
     @endif
+    <div id="create-form">
     <h4>Formulaire d'inscription</h4>
     {!! Form::open(array('action' => 'CustomersController@store')) !!}<br>
     {!! csrf_field() !!}
@@ -23,4 +24,5 @@
 
     {!! Form::submit('S\'inscrire') !!}
     {!! Form::close()  !!}
+    </div>
 @endsection

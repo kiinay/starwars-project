@@ -37,9 +37,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $list_status = Product::lists('status');
-
-        return view('admin.product_form', compact('list_status'));
+        return view('admin.product_form');
     }
 
     /**
@@ -54,6 +52,8 @@ class AdminController extends Controller
         $product->title = $request->title;
         $product->abstract = $request->abstract;
         $product->content = $request->content;
+        $product->status = $request->status;
+        $product->category_id = $request->category_id;
 
         $image = new Image;
         $img_name = $request->file('image')->getClientOriginalName();
@@ -91,7 +91,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('admin.edit', compact('product'));
     }
 
     /**
@@ -103,7 +104,38 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->title = $request->title;
+        $product->abstract = $request->abstract;
+        $product->content = $request->content;
+        $product->status = $request->status;
+        $product->category_id = $request->category_id;
+
+
+        if(!empty($request->image)){
+            $image = new Image;
+            $img_name = $request->file('image')->getClientOriginalName();
+            $image->name = $img_name;
+
+            $request->file('image')->move(public_path('images'), $img_name);
+            $image->uri = '/images/' . $img_name;
+
+            if($image->save()){
+                $product->image_id = $image->id;
+                $product->save();
+                \Session::flash('message', 'Produit bien modifié en BDD.');
+            }else{
+                \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
+            }
+            return redirect('admin/dashboard');
+        }else{
+            if($product->save()){
+                \Session::flash('message', 'Produit bien modifié en BDD.');
+            }else{
+                \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
+            }
+            return redirect('admin/dashboard');
+        }
     }
 
     /**
@@ -114,6 +146,14 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        if($product->delete()){
+            \Session::flash('message', 'Utilisateur bien supprimé de la BDD.');
+            return redirect('admin/dashboard');
+        }else{
+            \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
+            return redirect('admin/dashboard');
+        }
     }
 }
