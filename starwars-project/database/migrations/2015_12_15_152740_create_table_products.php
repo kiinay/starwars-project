@@ -18,7 +18,8 @@ class CreateTableProducts extends Migration
             $table->integer('image_id')->unsigned()->nullable();
             $table->string('title');
             $table->string('abstract');
-            $table->string('content');
+            $table->string('content', 10000);
+            $table->integer('prix')->unsigned()->nullable();
             $table->enum('status', ['disponible', 'rupture', 'commande'])->default('disponible');
             $table->timestamps();
         });
