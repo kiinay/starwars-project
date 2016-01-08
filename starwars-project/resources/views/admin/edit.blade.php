@@ -83,6 +83,51 @@
             ?>
 
         <br>
+        <br/>
+        <label for="tags">Tags : </label>
+        <?php
+        $s = 0;
+        for($i=0;$i<5;$i++){
+            if(isset($tags[$i]) && $tags[$i]['tag_id'] == 1){
+                echo "<input type='checkbox' value='1' name='Etoile' checked='checked' />Etoile";
+                $s = 1;
+            }
+            if($i == 4 && $s != 1) echo "<input type='checkbox' value='1' name='Etoile' />Etoile";
+            if($i == 4) $s = 0;
+        }
+        for($i=0;$i<5;$i++){
+            if(isset($tags[$i]) && $tags[$i]['tag_id'] == 2){
+                echo "<input type='checkbox' value='2' name='Espace' checked='checked' />Espace";
+                $s = 1;
+            }
+            if($i == 4 && $s != 1) echo "<input type='checkbox' value='2' name='Espace' />Espace";
+            if($i == 4) $s = 0;
+        }
+        for($i=0;$i<5;$i++){
+            if(isset($tags[$i]) && $tags[$i]['tag_id'] == 3){
+                echo "<input type='checkbox' value='3' name='Galaxie' checked='checked' />Galaxie";
+                $s = 1;
+            }
+            if($i == 4 && $s != 1) echo "<input type='checkbox' value='3' name='Galaxie' />Galaxie";
+            if($i == 4) $s = 0;
+        }
+        for($i=0;$i<5;$i++){
+            if(isset($tags[$i]) && $tags[$i]['tag_id'] == 4){
+                echo "<input type='checkbox' value='4' name='Empire' checked='checked' />Empire";
+                $s = 1;
+            }
+            if($i == 4 && $s != 1) echo "<input type='checkbox' value='4' name='Empire' />Empire";
+            if($i == 4) $s = 0;
+        }
+        for($i=0;$i<5;$i++){
+            if(isset($tags[$i]) && $tags[$i]['tag_id'] == 5){
+                echo "<input type='checkbox' value='5' name='Alliance' checked='checked' />Alliance";
+                $s = 1;
+            }
+            if($i == 4 && $s != 1) echo "<input type='checkbox' value='5' name='Alliance' />Alliance";
+        }
+
+            ?>
         <br>
         {!! Form::submit('Enregistrer') !!}
         {!! Form::close()  !!}

@@ -45,7 +45,13 @@
       <option value="2">Casques</option>
     </select>
     <br>
-
+        <label for="tags">Tags : </label>
+        <input type="checkbox" name="Etoile" value="1"/>Etoile
+        <input type="checkbox" name="Espace" value="2" />Espace
+        <input type="checkbox" name="Galaxie" value="3" />Galaxie
+        <input type="checkbox" name="Empire" value="4" />Empire
+        <input type="checkbox" name="Alliance" value="5" />Alliance
+        <br>
 
       {!! Form::submit('Enregistrer') !!}
       {!! Form::close()  !!}

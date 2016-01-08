@@ -22,4 +22,8 @@ class Product extends Model
   public function image() {
     return $this->belongsTo('App\Image');
   }
+
+  public function tags(){
+      return $this->belongsToMany('App\Tag');
+  }
 }

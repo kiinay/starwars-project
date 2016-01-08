@@ -28,7 +28,7 @@
           {{ $product->abstract }}
         </p>
 
-        <p>#tag</p>
+        <p><em>{{ $product->tags->lists('name') }}</em></p>
 
         <a href="{{ url('product', $product->id) }}">Lire la suite...</a>
       </div>

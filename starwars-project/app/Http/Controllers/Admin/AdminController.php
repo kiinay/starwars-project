@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Image;
 use App\Product;
+use App\ProductTag;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\Request;
 
@@ -65,6 +66,37 @@ class AdminController extends Controller
         if($image->save()){
             $product->image_id = $image->id;
             $product->save();
+            //gestion des tags
+            if(isset($request->Etoile)){
+                $product_tag = new ProductTag;
+                $product_tag->product_id = $product->id;
+                $product_tag->tag_id = $request->Etoile;
+                $product_tag->save();
+            }
+            if(isset($request->Espace)){
+                $product_tag = new ProductTag;
+                $product_tag->product_id = $product->id;
+                $product_tag->tag_id = $request->Espace;
+                $product_tag->save();
+            }
+            if(isset($request->Galaxie)){
+                $product_tag = new ProductTag;
+                $product_tag->product_id = $product->id;
+                $product_tag->tag_id = $request->Galaxie;
+                $product_tag->save();
+            }
+            if(isset($request->Empire)){
+                $product_tag = new ProductTag;
+                $product_tag->product_id = $product->id;
+                $product_tag->tag_id = $request->Empire;
+                $product_tag->save();
+            }
+            if(isset($request->Alliance)){
+                $product_tag = new ProductTag;
+                $product_tag->product_id = $product->id;
+                $product_tag->tag_id = $request->Alliance;
+                $product_tag->save();
+            }
             \Session::flash('message', 'Produit bien créé en BDD.');
         }else{
             \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
@@ -92,7 +124,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('admin.edit', compact('product'));
+        $tags = ProductTag::where('product_id', '=', $product->id)->get();
+        return view('admin.edit', compact('product', 'tags'));
     }
 
     /**
@@ -123,6 +156,87 @@ class AdminController extends Controller
             if($image->save()){
                 $product->image_id = $image->id;
                 $product->save();
+                //gestion des tags
+                if(isset($request->Etoile)){
+                    $match = ['tag_id' => 1, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()){
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Etoile;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 1, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Espace)){
+                    $match = ['tag_id' => 2, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Espace;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 2, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Galaxie)){
+                    $match = ['tag_id' => 3, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Galaxie;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 3, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Empire)){
+                    $match = ['tag_id' => 4, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Empire;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 4, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Alliance)){
+                    $match = ['tag_id' => 5, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Alliance;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 5, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
                 \Session::flash('message', 'Produit bien modifié en BDD.');
             }else{
                 \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
@@ -130,6 +244,87 @@ class AdminController extends Controller
             return redirect('admin/dashboard');
         }else{
             if($product->save()){
+                //gestion des tags
+                if(isset($request->Etoile)){
+                    $match = ['tag_id' => 1, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()){
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Etoile;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 1, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Espace)){
+                    $match = ['tag_id' => 2, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Espace;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 2, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Galaxie)){
+                    $match = ['tag_id' => 3, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Galaxie;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 3, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Empire)){
+                    $match = ['tag_id' => 4, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Empire;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 4, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
+                if(isset($request->Alliance)){
+                    $match = ['tag_id' => 5, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if($pt->isEmpty()) {
+                        $product_tag = new ProductTag;
+                        $product_tag->product_id = $product->id;
+                        $product_tag->tag_id = $request->Alliance;
+                        $product_tag->save();
+                    }
+                }else{
+                    $match = ['tag_id' => 5, 'product_id' => $product->id];
+                    $pt = ProductTag::where($match)->get();
+                    if(!$pt->isEmpty()){
+                        ProductTag::where($match)->delete();
+                    }
+                }
                 \Session::flash('message', 'Produit bien modifié en BDD.');
             }else{
                 \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');

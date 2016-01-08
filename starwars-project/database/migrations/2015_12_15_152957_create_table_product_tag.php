@@ -13,10 +13,11 @@ class CreateTableProductTag extends Migration
     public function up()
     {
         Schema::create('product_tag', function (Blueprint $table) {
-            $table->integer('product_id')->unsigned()->nullable();
-            $table->integer('tag_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('SET NULL');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('CASCADE');
+            $table->integer('product_id')->unsigned()->index();
+            $table->integer('tag_id')->unsigned()->index();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

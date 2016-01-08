@@ -13,6 +13,8 @@
       <p>
         {{ $product->content }}
       </p>
+
+        <p><em>{{ $product->tags->lists('name') }}</em></p>
     </div>
 
     <div class="img-max six columns">
