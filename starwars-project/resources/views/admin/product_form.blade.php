@@ -30,28 +30,29 @@
       {!! Form::file('image') !!}
 
       <br>
-    <br/>
-    <label for="status">Status : </label>
-    <select name="status" multiple required>
-        <option value="disponible">Disponible</option>
-        <option value="commande">Commande</option>
-        <option value="rupture">Rupture</option>
-    </select>
+      <br/>
+      <label for="status">Status : </label>
+      <select name="status" multiple required>
+          <option value="disponible">Disponible</option>
+          <option value="commande">Commande</option>
+          <option value="rupture">Rupture</option>
+      </select>
 
-    <br/>
-    <label for="category_id">Catégorie : </label>
-    <select name="category_id" multiple required>
-      <option value="1">Lasers</option>
-      <option value="2">Casques</option>
-    </select>
-    <br>
-        <label for="tags">Tags : </label>
-        <input type="checkbox" name="Etoile" value="1"/>Etoile
-        <input type="checkbox" name="Espace" value="2" />Espace
-        <input type="checkbox" name="Galaxie" value="3" />Galaxie
-        <input type="checkbox" name="Empire" value="4" />Empire
-        <input type="checkbox" name="Alliance" value="5" />Alliance
-        <br>
+      <br/>
+      <label for="category_id">Catégorie : </label>
+      <select name="category_id" multiple required>
+        <option value="1">Lasers</option>
+        <option value="2">Casques</option>
+      </select>
+      <br>
+      <label for="tags">Tags : </label>
+      <input type="checkbox" name="Etoile" value="1"/>Etoile
+      <input type="checkbox" name="Espace" value="2" />Espace
+      <input type="checkbox" name="Galaxie" value="3" />Galaxie
+      <input type="checkbox" name="Empire" value="4" />Empire
+      <input type="checkbox" name="Alliance" value="5" />Alliance
+      <br>
+      <br>
 
       {!! Form::submit('Enregistrer') !!}
       {!! Form::close()  !!}

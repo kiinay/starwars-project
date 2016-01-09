@@ -9,8 +9,8 @@
 
   <div id="admin-products">
     <div class="create-product">
-      <a href="{{ url('admin/product-form') }}">
-        <button class="button-primary">CRÉER UN PRODUIT</button>
+      <a href="{{ url('admin/product-form') }}" class="button button-primary">
+        CRÉER UN PRODUIT
       </a>
     </div>
 

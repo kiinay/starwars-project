@@ -33,7 +33,7 @@ body {
     font-size: 6rem; }
   body .container h1 {
     text-align: center; }
-  body .container #product, body .container #auth, body .container #admin-products, body .container #create-form {
+  body .container #product, body .container #auth, body .container #contact, body .container #admin-products, body .container #create-form {
     padding: 10px;
     background-color: rgba(245, 245, 245, 0.5);
     border: 1px solid #c1c1c1;
@@ -64,6 +64,12 @@ body {
         font-size: 1.6rem;
         font-family: "starWars";
         font-weight: bold; }
+    body .container #product .command {
+      text-align: right; }
+      body .container #product .command .price {
+        margin: 0 5px 10px 0;
+        font-family: "starWars";
+        color: #8a0000; }
     body .container #product .img-min img {
       width: 300px;
       height: 300px; }
@@ -73,6 +79,10 @@ body {
       float: right; }
   body .container #auth h4 {
     margin-bottom: 30px; }
+  body .container #contact textarea {
+    height: 200px; }
+  body .container #contact address p {
+    margin-bottom: 10px; }
   body .container #admin-products {
     text-align: center; }
     body .container #admin-products .create-product {

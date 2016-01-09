@@ -26,3 +26,7 @@ Route::get('/admin/product-form', 'Admin\AdminController@create');
 Route::resource('admin', 'Admin\AdminController');
 
 Route::controller('auth', 'Auth\AuthController');
+
+Route::get('/contact', function(){
+  return view('contact.contact');
+});

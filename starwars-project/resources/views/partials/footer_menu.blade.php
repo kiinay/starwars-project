@@ -1,6 +1,6 @@
 <div class="container">
   <a href="#">Mentions</a>
-  <a href="#">Contact</a>
+  <a href="{{ url('/contact') }}">Contact</a>
   <?php if (Auth::check()): ?>
   <a href="{{ url('/admin/dashboard') }}">Dashboard (admin)</a>
   <a href="{{ url('/auth/logout') }}">Logout (admin)</a>
