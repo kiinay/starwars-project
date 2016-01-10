@@ -3,11 +3,11 @@
 @section('content')
   <h1>Administration des produits</h1>
 
-  @if (Session::has('message'))
-      <div class="session">{!! session('message') !!}</div>
-  @endif
-
   <div id="admin-products">
+    @if (Session::has('message'))
+      <div class="session">{!! session('message') !!}</div>
+    @endif
+
     <div class="create-product">
       <a href="{{ url('admin/product-form') }}" class="button button-primary">
         CRÉER UN PRODUIT

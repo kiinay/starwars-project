@@ -29,6 +29,10 @@
           <p><em>{{ $product->tags->lists('name') }}</em></p>
 
         <a href="{{ url('product', $product->id) }}">Lire la suite...</a>
+
+        <div class="command">
+          <h4 class="price">{{ $product->prix }}€</h4>
+        </div>
       </div>
     </div>
   @endforeach

@@ -30,3 +30,7 @@ Route::controller('auth', 'Auth\AuthController');
 Route::get('/contact', function(){
   return view('contact.contact');
 });
+
+Route::get('/legal', function(){
+  return view('legal.legal');
+});

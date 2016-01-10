@@ -1,5 +1,5 @@
 <div class="container">
-  <a href="#">Mentions</a>
+  <a href="{{ url('/legal') }}">Mentions</a>
   <a href="{{ url('/contact') }}">Contact</a>
   <?php if (Auth::check()): ?>
   <a href="{{ url('/admin/dashboard') }}">Dashboard (admin)</a>

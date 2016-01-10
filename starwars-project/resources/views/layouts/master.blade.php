@@ -25,7 +25,10 @@
       @include('partials.main_menu')
     </header>
 
-    <h1 class="market-title">STAR WARS MARKET</h1>
+
+      <h1 class="market-title">
+        <a href="{{ url('/') }}">STAR WARS MARKET</a>
+      </h1>
     <div class="container">
       @yield('content', 'default value')
     </div>

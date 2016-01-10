@@ -34,10 +34,6 @@
 
         <div class="command">
           <h4 class="price">{{ $product->prix }}€</h4>
-
-          <a href="#" class="button button-primary">
-            Ajouter au panier
-          </a>
         </div>
       </div>
     </div>

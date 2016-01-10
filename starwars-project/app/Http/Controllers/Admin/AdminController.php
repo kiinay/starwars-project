@@ -344,7 +344,7 @@ class AdminController extends Controller
         $product = Product::findOrFail($id);
 
         if($product->delete()){
-            \Session::flash('message', 'Utilisateur bien supprimé de la BDD.');
+            \Session::flash('message', 'Produit bien supprimé de la BDD.');
             return redirect('admin/dashboard');
         }else{
             \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
