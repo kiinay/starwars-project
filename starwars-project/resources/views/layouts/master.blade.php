@@ -36,5 +36,7 @@
     <footer id="footer-container" class="row">
       @include('partials.footer_menu')
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{ asset('assets/js/app.js') }}"></script>
   </body>
 </html>

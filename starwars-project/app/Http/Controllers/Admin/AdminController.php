@@ -53,6 +53,7 @@ class AdminController extends Controller
         $product->title = $request->title;
         $product->abstract = $request->abstract;
         $product->content = $request->content;
+        $product->prix = $request->prix;
         $product->status = $request->status;
         $product->category_id = $request->category_id;
 
@@ -141,6 +142,7 @@ class AdminController extends Controller
         $product->title = $request->title;
         $product->abstract = $request->abstract;
         $product->content = $request->content;
+        $product->prix = $request->prix;
         $product->status = $request->status;
         $product->category_id = $request->category_id;
 

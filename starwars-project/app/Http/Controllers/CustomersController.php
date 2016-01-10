@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Customer;
 use Hash;
+use Input;
+use App\Product;
+use App\History;
 
 class CustomersController extends Controller
 {
@@ -94,5 +98,46 @@ class CustomersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addToCart(){
+        $realQuantity = Input::get('quantity') + 1;
+        Session::push('cart.product', ['id' => Input::get('productId'), 'quantity' => $realQuantity]);
+
+        $product = Product::findOrFail(Input::get('productId'));
+        $message = $realQuantity . ' ' . $product->title . ' bien ajouté à votre panier';
+        Session::flash('message', $message);
+    }
+
+    public function cart(){
+        $products = Session::get('cart.product');
+        $cart = [];
+        $check = 0;
+        $j = 0;
+        for($i=0;$i<count($products);$i++){
+            ${"product" . $i} = Product::with('image')->find($products[$i]['id']);
+            for($k=0;$k<count($products);$k++){
+                if(isset($cart[$k]['product']['id']) && $cart[$k]['product']['id'] === $products[$i]['id']){
+                    $cart[$k]['quantity'] += $products[$i]['quantity'];
+                    $check = 1;
+                }
+            }
+            if($check === 0){
+                $j++;
+                $cart[$j]['product'] = ${"product" . $i};
+                $cart[$j]['quantity'] = $products[$i]['quantity'];
+            }
+            $check = 0;
+        }
+        return view('customers.cart', compact('cart'));
+    }
+
+    public function order(Request $request){
+        /*
+        $customer = Customer::where('')
+        $history = new History();
+        $history->customer_id =
+        $history->total = $request->total;
+        */
     }
 }

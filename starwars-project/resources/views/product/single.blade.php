@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+    @if (Session::has('message'))
+        <div style="background-color:limegreen">{!! session('message') !!}</div>
+    @endif
   <div id="product" class="row">
     <div class="six columns">
       <div class="head show">
@@ -15,6 +18,7 @@
       </p>
 
         <p><em>{{ $product->tags->lists('name') }}</em></p>
+
     </div>
 
     <div class="img-max six columns">
@@ -22,10 +26,10 @@
 
       <div class="command">
         <h4 class="price">{{ $product->prix }}€</h4>
-
-        <a href="#" class="button button-primary">
-          Ajouter au panier
-        </a>
+          {!! Form::open(array('url'=>'add-product','method'=>'POST', 'id'=>'myform')) !!}
+          {!! Form::select('quantity', [1,2,3,4,5,6,7,8,9]) !!}
+          <a href="javascript:void(0)" data-product="{{ $product->id }}" class="button button-primary">Ajouter cette quantité à votre panier</a>
+          {!! Form::close() !!}
       </div>
     </div>
   </div>

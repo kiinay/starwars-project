@@ -19,6 +19,7 @@ Route::get('/', 'ProductController@index');
 Route::get('/category/{id}', 'ProductController@category');
 
 Route::get('/register', 'CustomersController@create');
+Route::get('/cart', 'CustomersController@cart');
 
 Route::get('/admin/dashboard', 'Admin\AdminController@index');
 Route::get('/admin/product-form', 'Admin\AdminController@create');
@@ -34,3 +35,6 @@ Route::get('/contact', function(){
 Route::get('/legal', function(){
   return view('legal.legal');
 });
+
+Route::post('add-product', 'CustomersController@addToCart');
+Route::post('order', 'CustomersController@order');

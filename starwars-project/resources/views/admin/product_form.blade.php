@@ -26,6 +26,9 @@
       {!! Form::label('content', 'Description') !!}
       {!! Form::text('content', null, array('placeholder' => 'Description du produit...', 'class' => 'u-full-width')) !!}
 
+      {!! Form::label('prix', 'Prix') !!}
+      {!! Form::input('number','prix', null, array('placeholder' => 'Prix', 'class' => 'u-full-width')) !!}
+
       {!! Form::label('image', 'Image du produit') !!}
       {!! Form::file('image') !!}
 

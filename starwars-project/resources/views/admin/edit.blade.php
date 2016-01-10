@@ -24,9 +24,11 @@
       {!! Form::label('content', 'Description') !!}
       {!! Form::textarea('content', $product['content'], array('placeholder' => 'Description du produit...', 'class' => 'u-full-width')) !!}
 
-      {!! Form::label('image', 'Image du produit') !!}
-      {!! Form::file('image') !!}
+        {!! Form::label('prix', 'Prix') !!}
+        {!! Form::input('number','prix', $product['prix'], array('placeholder' => 'Prix', 'class' => 'u-full-width')) !!}
 
+        {!! Form::label('image', 'Image du produit') !!}
+        {!! Form::file('image') !!}
       <br/>
 
       <label for="status">Status : </label>
