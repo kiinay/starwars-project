@@ -16,7 +16,6 @@ class CreateTableHistories extends Migration
             $table->increments('id');
             $table->integer('customer_id')->unsigned()->nullable();
             $table->integer('total');
-            $table->dateTime('commanded_at');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });

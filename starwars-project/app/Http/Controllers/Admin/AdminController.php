@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Image;
 use App\Product;
 use App\ProductTag;
+use App\History;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,6 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::all();
-
         return view('admin.index', compact('products'));
     }
 
@@ -352,5 +352,10 @@ class AdminController extends Controller
             \Session::flash('message', 'Probleme lors de l\'acces à la BDD. Merci de réessayer.');
             return redirect('admin/dashboard');
         }
+    }
+
+    public function history(){
+        $history = History::all();
+        return view('admin.history', compact('history'));
     }
 }

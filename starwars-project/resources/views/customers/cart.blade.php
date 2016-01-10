@@ -2,12 +2,17 @@
 
 @section('content')
     <h1>Panier</h1>
+    @if (Session::has('message'))
+        <div>{!! session('message') !!}</div>
+    @endif
+
     <?php if(empty($cart)): ?>
     <div id="product" class="row">
             <h4>Votre panier est vide !</h4>
         </div>
     <?php else : ?>
     <?php $total = 0; ?>
+    <a href="flush-cart" class="button button-primary" onClick="return confirm('Etes vous sur de vouloir vider le panier ?');">Vider le panier</a>
     @foreach($cart as $product)
         <div id="product" class="row">
             <div class="five columns">
@@ -36,7 +41,7 @@
 
         <p>
             {!! Form::label('email', 'Email Address') !!}
-            {!! Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) !!}
+            {!! Form::email('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) !!}
         </p>
 
         <p>
@@ -46,7 +51,7 @@
 
         {!! Form::text('total', $total, array('hidden' => true)) !!}
 
-        <p>{!! Form::submit('Submit!') !!}</p>
+        <p>{!! Form::submit('Commander !') !!}</p>
         {!! Form::close() !!}
     </div>
     <?php endif ?>

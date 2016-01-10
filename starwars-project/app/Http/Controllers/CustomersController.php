@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Customer;
 use Hash;
 use Input;
+use Response;
 use App\Product;
 use App\History;
 
@@ -103,7 +104,6 @@ class CustomersController extends Controller
     public function addToCart(){
         $realQuantity = Input::get('quantity') + 1;
         Session::push('cart.product', ['id' => Input::get('productId'), 'quantity' => $realQuantity]);
-
         $product = Product::findOrFail(Input::get('productId'));
         $message = $realQuantity . ' ' . $product->title . ' bien ajouté à votre panier';
         Session::flash('message', $message);
@@ -133,11 +133,25 @@ class CustomersController extends Controller
     }
 
     public function order(Request $request){
-        /*
-        $customer = Customer::where('')
-        $history = new History();
-        $history->customer_id =
-        $history->total = $request->total;
-        */
+        $customer = Customer::where('email', '=', $request->email)->first();
+        if(empty($customer)){
+            Session::flash('message', 'Désolé, cet email n\'apparait pas dans notre BDD.');
+            return redirect()->back();
+        }
+        if(Hash::check($request->password, $customer->password))
+        {
+            $history = new History();
+            $history->customer_id = $customer->id;
+            $history->total = $request->total;
+            $history->save();
+            Session::flush();
+            Session::flash('message', 'Merci pour votre commande !');
+            return redirect()->back();
+        }
+        else
+        {
+            Session::flash('message', 'Désolé, merci de vérifier votre mot de passe.');
+            return redirect()->back();
+        }
     }
 }

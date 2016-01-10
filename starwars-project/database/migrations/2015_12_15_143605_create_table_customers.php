@@ -16,7 +16,7 @@ class CreateTableCustomers extends Migration
             $table->increments('id');
             $table->string('username');
             $table->string('email')->unique();
-            $table->string('password', 20);
+            $table->string('password', 255);
             $table->timestamps();
         });
     }
