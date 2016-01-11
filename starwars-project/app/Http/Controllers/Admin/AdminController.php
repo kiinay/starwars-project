@@ -6,6 +6,7 @@ use App\Image;
 use App\Product;
 use App\ProductTag;
 use App\History;
+use App\Customer;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\Request;
 
@@ -356,6 +357,7 @@ class AdminController extends Controller
 
     public function history(){
         $history = History::all();
-        return view('admin.history', compact('history'));
+        $customers = Customer::all();
+        return view('admin.history', compact('history', 'customers'));
     }
 }
