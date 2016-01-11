@@ -25,6 +25,7 @@ body
       &:hover
         background-color: #000054
   footer
+    position: fixed
     bottom: 0
     text-align: center
     width: 100%
@@ -39,10 +40,12 @@ body
       color: #555
       &:hover
         color: #3d3d3d
+  .wrapper
+    margin-bottom: 72px
   .container
     h1
       text-align: center
-    #product, #auth, #contact, #legal, #admin-products, #create-form
+    #product, #auth, #contact, #legal, #cart, #admin-products, #create-form
       padding: 10px
       background-color: rgba(245, 245, 245, .5)
       border: 1px solid #c1c1c1
@@ -79,7 +82,7 @@ body
           margin: 0 5px 10px 0
           font-family: 'starWars'
           color: #8a0000
-      .img-min
+      .img-med
         img
           width: 300px
           height: 300px
@@ -107,6 +110,20 @@ body
         .test
           width: 250px
           height: 250px
+    #cart
+      margin: 0 0 15px 0
+      p
+        margin: 10px 0 0 0
+        font-size: 2rem
+      .img-min
+        img
+          width: 200px
+          height: 200px
+      .price
+        padding-right: 50px
+        text-align: right
+      .identify
+        font-family: 'starWars'
     #admin-products
       text-align: center
       .create-product
@@ -120,3 +137,10 @@ body
         color: #9c0000
         p
           margin: 0
+    .session
+      padding: 10px
+      border: 1px
+      border-radius: 10px
+      margin-bottom: 10px
+      background-color: #FFD642
+      text-align: center

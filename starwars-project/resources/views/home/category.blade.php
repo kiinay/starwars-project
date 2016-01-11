@@ -9,7 +9,7 @@
 
   @foreach($products as $product)
     <div id="product" class="row">
-      <div class="img-min four columns">
+      <div class="img-med four columns">
         <a href="{{ url('product', $product->id) }}">
           <img src="{{ asset($product->image->uri) }}" alt="product pictures">
         </a>

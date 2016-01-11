@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-    @if (Session::has('message'))
-        <div style="background-color:limegreen">{!! session('message') !!}</div>
-    @endif
+  @if (Session::has('message'))
+      <div class="session">{!! session('message') !!}</div>
+  @endif
   <div id="product" class="row">
     <div class="six columns">
       <div class="head show">

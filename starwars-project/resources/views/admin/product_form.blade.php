@@ -3,11 +3,11 @@
 @section('content')
   <h1>Création d'un produit</h1>
 
-  <div id="create-form">
-    @if (Session::has('message'))
-      <div>{!! session('message') !!}</div>
-    @endif
+  @if (Session::has('message'))
+    <div class="session">{!! session('message') !!}</div>
+  @endif
 
+  <div id="create-form">
     <div>
       {!! Form::open(array('action' => 'Admin\AdminController@store', 'files' => true)) !!}<br>
       {!! csrf_field() !!}
